@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 const Customers = () => {
   return (
     <div>
@@ -6,4 +8,7 @@ const Customers = () => {
   );
 };
 
+export const metadata: Metadata = {
+  title: "Customers",
+};
 export default Customers;
