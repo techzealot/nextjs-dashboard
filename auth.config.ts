@@ -5,6 +5,8 @@ export const authConfig = {
     },
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {
+            console.log(nextUrl.toString());
+
             const isLoggedIn = !!auth?.user;
             const isOnDashBoard = nextUrl.pathname.startsWith("/dashboard");
             const isOnLogin = nextUrl.pathname.startsWith("/login");
@@ -13,8 +15,13 @@ export const authConfig = {
                     return true;
                 }
                 return false;
-            } else if (isLoggedIn && isOnLogin) {
-                return Response.redirect(new URL("/dashboard", nextUrl))
+            } else if (isLoggedIn) {
+                const callbackUrl = nextUrl.searchParams.get("callbackUrl");
+                if (callbackUrl) {
+                    return Response.redirect(new URL(callbackUrl, nextUrl))
+                } else {
+                    return Response.redirect(new URL("/dashboard", nextUrl))
+                }
             }
             return true;
         }
