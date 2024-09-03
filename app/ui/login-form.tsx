@@ -9,10 +9,13 @@ import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "./button";
 import { useActionState } from "react";
 import { authenticate } from "@/app/lib/actions";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
+  const callbackUrl = useSearchParams()?.get("callbackUrl") || "/dashboard";
+  const authenticateWithCallbackUrl = authenticate.bind(null, callbackUrl);
   const [errorMessage, formAction, isPending] = useActionState(
-    authenticate,
+    authenticateWithCallbackUrl,
     undefined
   );
   return (

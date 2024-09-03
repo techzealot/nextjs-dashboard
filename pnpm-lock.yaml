@@ -57,6 +57,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@onlook/nextjs':
+        specifier: ^2.1.0
+        version: 2.1.0
       '@types/bcrypt':
         specifier: ^5.0.2
         version: 5.0.2
@@ -348,6 +351,9 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@onlook/nextjs@2.1.0':
+    resolution: {integrity: sha512-+l10uOjrf6cZisrhkS167o4LkG17LsNIyGa0mRcinHAFWN7rfKhdt8wy6Klh03fyBooEb47p09Lmu9x46hFbKg==}
 
   '@panva/hkdf@1.2.0':
     resolution: {integrity: sha512-97ZQvZJ4gJhi24Io6zI+W7B67I82q1I8i3BSzQ4OyZj1z4OW87/ruF26lrMES58inTKLy2KgVIDcx8PU4AaANQ==}
@@ -2247,6 +2253,8 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
+
+  '@onlook/nextjs@2.1.0': {}
 
   '@panva/hkdf@1.2.0': {}
 

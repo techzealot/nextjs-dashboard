@@ -87,11 +87,15 @@ export async function deleteInvoice(id: string) {
 }
 
 export async function authenticate(
+    callbackUrl: string,
     prevState: string | undefined,
     formData: FormData,
 ) {
     try {
-        await signIn('credentials', formData);
+        await signIn('credentials', {
+            ...Object.fromEntries(formData),
+            redirectTo: callbackUrl,
+        });
     } catch (error) {
         if (error instanceof AuthError) {
             switch (error.type) {
